@@ -1,0 +1,23 @@
+# -*- mode: snippet -*-
+# name: atari 2600
+# uuid:
+# key: a
+# condition: t
+# --
+    processor 6502
+
+    include "vcs.h"
+    include "macro.h"
+
+    seg Code
+    org $F000
+
+Start:
+    CLEAN_START                 ; Macro to safely clean memory
+
+
+    jmp Start
+
+    org $FFFC
+    .word Start
+    .word Start
